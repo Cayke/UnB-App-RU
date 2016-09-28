@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/iv_row_cardapio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:srcCompat="@android:drawable/sym_def_app_icon"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tv_row_cardapio_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:layout_toRightOf="@+id/iv_row_cardapio"
+        android:layout_toLeftOf="@+id/tv_row_cardapio_calories"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tv_row_cardapio_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+    />
+
+
+</RelativeLayout>

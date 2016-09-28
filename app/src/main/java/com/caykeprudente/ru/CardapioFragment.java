@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -19,6 +20,7 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,6 +29,8 @@ import java.util.List;
 
 public class CardapioFragment extends Fragment {
     ListView listView;
+    CardapioListAdapter listAdapter;
+
     ImageButton ibLeft, ibRight;
     TextView tvTitle;
     TabHost tabHost;
@@ -41,6 +45,12 @@ public class CardapioFragment extends Fragment {
         final View view = inflater.inflate(R.layout.cardapio_layout, container, false);
 
         listView = (ListView) view.findViewById(R.id.listViewCardapio);
+
+        // Create ArrayAdapter using the planet list.
+        listAdapter = new CardapioListAdapter(this.getContext(), R.layout.row_cardapio_layout, getArrayWithIngredients());
+
+        listView.setAdapter(listAdapter);
+
         tvTitle = (TextView) view.findViewById(R.id.textViewCardapioDate);
 
         ibLeft = (ImageButton) view.findViewById(R.id.imageButtonCardapioLeft);
@@ -117,7 +127,23 @@ public class CardapioFragment extends Fragment {
         listDates.add("28/09 Quarta-feira");
         listDates.add("29/09 Quinta-feira");
         listDates.add("30/09 Sexta-feira");
-        listDates.add("01/10 Sábado");
+    }
+
+    private ArrayList<Ingredient> getArrayWithIngredients ()
+    {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new Ingredient("Caçarola marinada (paleta)", Ingredient.Type.Carne, 180));
+        arrayList.add(new Ingredient("Cuscuz vegetariano", Ingredient.Type.Vegano, 120));
+        arrayList.add(new Ingredient("Ratattouile", Ingredient.Type.Sobremesa, 45));
+        arrayList.add(new Ingredient("Gelatina", Ingredient.Type.Sobremesa, 30));
+        arrayList.add(new Ingredient("Arroz branco, arroz integral, feijao preto e aquela farinha sem sabor de lei", Ingredient.Type.Carne, 79));
+        arrayList.add(new Ingredient("Acelga e nabo com tomate", Ingredient.Type.Carne, 10));
+        arrayList.add(new Ingredient("Molho de salsa", Ingredient.Type.Carne, 30));
+        arrayList.add(new Ingredient("Caçarola marinada (paleta)", Ingredient.Type.Carne, 180));
+        arrayList.add(new Ingredient("Cuscuz vegetariano", Ingredient.Type.Vegano, 120));
+        arrayList.add(new Ingredient("Ratattouile", Ingredient.Type.Sobremesa, 45));
+        arrayList.add(new Ingredient("Gelatina", Ingredient.Type.Sobremesa, 30));
+        return arrayList;
     }
 
     private void updateTextView ()
