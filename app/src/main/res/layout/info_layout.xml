@@ -1,12 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:text="TELA DE INFO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_weight="1" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/btn_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp" />
+
+        <TextView
+            android:id="@+id/nav_info"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="O RU"
+            android:textSize="28dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/left"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="20dp"
+            android:layout_alignTop="@+id/btn_left"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+
+        <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/vf"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <include
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                layout="@layout/o_ru" />
+
+            <include
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                layout="@layout/contatos" />
+
+            <include
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                layout="@layout/politica_uso" />
+
+            <include
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                layout="@layout/fornecedores" />
+
+        </ViewFlipper>
+
+    </RelativeLayout>
+
 </LinearLayout>
