@@ -7,4 +7,7 @@
     <string name="tab_cafe">Café</string>
     <string name="tab_almoco">Almoço</string>
     <string name="tab_janta">Jantar</string>
+    <string name="cardapio_not">Notificar favoritos:</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancelar</string>
 </resources>

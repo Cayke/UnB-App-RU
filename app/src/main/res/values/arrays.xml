@@ -1,0 +1,10 @@
+<resources>
+    <array name="notifica_opcoes">
+        <item>1 dia antes</item>
+        <item>2 dia antes</item>
+        <item>3 dia antes</item>
+        <item>4 dia antes</item>
+        <item>5 dia antes</item>
+    </array>
+
+</resources>

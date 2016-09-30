@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:text="TELA CONFIGURACOES INGREDIENTES"
-        android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#f4f4f4">
+    
+    <Switch
+        android:id="@+id/switch_btn"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_weight="1" />
+        android:layout_width="match_parent"
+        android:text="Notificações"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textSize="20sp"
+        android:textOff="No"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dadada"/>
+
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layoutDirection="rtl"
+        android:paddingBottom="55dip"/>
 </LinearLayout>
