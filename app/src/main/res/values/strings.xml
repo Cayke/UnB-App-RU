@@ -4,6 +4,7 @@
     <string name="tab_2">Configurações</string>
     <string name="tab_3">Info</string>
 
+<<<<<<< HEAD
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis ligula quis elit placerat, vel aliquam nunc vehicula. Nam sit amet felis neque. Nunc dui risus, tempor nec ornare sed, malesuada vitae purus. Suspendisse fringilla sit amet diam nec pretium. Vestibulum lacinia semper quam, ac auctor quam. Quisque aliquet aliquam aliquam. Ut finibus turpis erat, sed ultrices quam faucibus id.
 
 Sed at pretium enim, sed vulputate ante. Cras a malesuada risus, bibendum placerat nunc. Sed ornare tempus justo ut consequat. Donec felis felis, congue eget turpis sed, molestie feugiat lacus. Vivamus a quam nec arcu viverra imperdiet. Nulla condimentum sit amet enim ac vehicula. Donec tincidunt volutpat lacus, at fermentum purus iaculis at. Proin lacinia orci eget semper pretium. Maecenas gravida felis sed vehicula vestibulum. Duis in nunc vehicula, accumsan sem quis, eleifend tellus. Integer vel faucibus turpis. Pellentesque ultrices porta bibendum. Maecenas viverra leo vel neque tincidunt, eu fringilla massa gravida. Donec accumsan ultrices tempor. Mauris id blandit urna. Nullam volutpat varius nunc vitae finibus.
@@ -23,4 +24,9 @@ Pellentesque aliquet dictum nulla vel cursus. Nam non urna ac elit molestie feug
     <string name="o_ru_txt3"><font fgcolor="red">Campus Ceilândia</font> - Inaugurado em 2014, funciona no prédio do MESP, contando com o mesmo cardápio, horários do Darcy Ribeiro.</string>
     <string name="o_ru_txt4"><font fgcolor="red">Fazenda Água Limpa</font> - Inaugurado em 2013, o RU da Fazenda funciona na sede administrativa, tendo também o mesmo cardápio, horários de funcionamento e preços do Darcy Ribeiro.</string>
     <string name="regras"><font fgcolor="#e74820">1. </font>Não fure fila;\r\n<font fgcolor="#e74820">2. </font>Não guarde lugar;\r\n<font fgcolor="#e74820">3. </font>Não converse enquanto se serve;\r\n<font fgcolor="#e74820">4. </font>Não é permitido deixar o refeitório portando canecas, talheres, pratos ou alimentos;\r\n</string>
+=======
+    <string name="tab_cafe">Café</string>
+    <string name="tab_almoco">Almoço</string>
+    <string name="tab_janta">Jantar</string>
+>>>>>>> d2af5e248f7f0db270003b8b4054a70928b78c5e
 </resources>
