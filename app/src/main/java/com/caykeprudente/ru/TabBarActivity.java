@@ -12,6 +12,8 @@ import android.util.Log;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 
+import io.realm.Realm;
+
 /**
  * Created by cayke on 28/09/16.
  */
@@ -24,6 +26,7 @@ public class TabBarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_bar_layout);
+        Realm.init(this);
         initUI();
     }
 
