@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -42,7 +43,11 @@ public class CardapioListAdapter extends ArrayAdapter<Ingredient> {
         textViewName.setText(ingredient.getName());
 
         TextView textViewCalories = (TextView) view.findViewById(R.id.tv_row_cardapio_calories);
-        textViewCalories.setText(String.valueOf(ingredient.getCalories()));
+        String calories = String.valueOf(ingredient.getCalories()) + " kcal";
+        textViewCalories.setText(calories);
+
+        ImageView imageView = (ImageView) view.findViewById(R.id.iv_row_cardapio);
+        imageView.setImageResource(R.drawable.icon_carne);
 
         return view;
     }

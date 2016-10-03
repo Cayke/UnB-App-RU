@@ -32,12 +32,14 @@ public class TabBarActivity extends AppCompatActivity {
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.icon_cardapio, R.color.colorPrimary);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.icon_cardapio, R.color.colorPrimary);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_3, R.drawable.icon_cardapio, R.color.colorPrimary);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.icon_saldo, R.color.colorPrimary);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_3, R.drawable.icon_info, R.color.colorPrimary);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.tab_4, R.drawable.icon_config, R.color.colorPrimary);
 
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
+        bottomNavigation.addItem(item4);
 
         // Set background color
         bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
@@ -68,10 +70,12 @@ public class TabBarActivity extends AppCompatActivity {
                 } else {
                     if (position == 0) //cardapio
                         currentFragment = new CardapioFragment();
-                    else if (position == 1) //config
-                        currentFragment = new ConfigFragment();
+                    else if (position == 1) //consulta
+                        currentFragment = new ConsultaFragment();
                     else if (position == 2) // info
                         currentFragment = new InfoFragment();
+                    else if (position == 3) //config
+                        currentFragment = new ConfigFragment();
                     else
                         return false;
 

@@ -17,10 +17,11 @@
         >
 
         <ImageButton
+            android:id="@+id/imageButtonCardapioLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_media_previous"
-            android:id="@+id/imageButtonCardapioLeft"
+            android:src="@drawable/left"
+            android:background="@android:color/transparent"
             android:layout_weight="1" />
 
         <TextView
@@ -34,10 +35,11 @@
             android:textAlignment="center" />
 
         <ImageButton
+            android:id="@+id/imageButtonCardapioRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_media_next"
-            android:id="@+id/imageButtonCardapioRight"
+            android:src="@drawable/right"
+            android:background="@android:color/transparent"
             android:layout_weight="1" />
     </LinearLayout>
 
