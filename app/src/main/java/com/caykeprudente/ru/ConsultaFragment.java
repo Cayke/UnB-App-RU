@@ -37,7 +37,7 @@ public class ConsultaFragment extends Fragment{
         listView = (ListView) view.findViewById(R.id.listViewCardapio);
 
         // Create ArrayAdapter using the planet list.
-        listAdapter = new CardapioListAdapter(this.getContext(), R.layout.row_cardapio_layout, getArrayWithIngredients());
+        listAdapter = new CardapioListAdapter(this.getContext(), R.layout.row_cardapio_layout, null);
 
         listView.setAdapter(listAdapter);
 
@@ -117,23 +117,6 @@ public class ConsultaFragment extends Fragment{
         listDates.add("28/09 Quarta-feira");
         listDates.add("29/09 Quinta-feira");
         listDates.add("30/09 Sexta-feira");
-    }
-
-    private ArrayList<Ingredient> getArrayWithIngredients ()
-    {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new Ingredient("Caçarola marinada (paleta)", Ingredient.Type.Carne, 180));
-        arrayList.add(new Ingredient("Cuscuz vegetariano", Ingredient.Type.Vegano, 120));
-        arrayList.add(new Ingredient("Ratattouile", Ingredient.Type.Sobremesa, 45));
-        arrayList.add(new Ingredient("Gelatina", Ingredient.Type.Sobremesa, 30));
-        arrayList.add(new Ingredient("Arroz branco, arroz integral, feijao preto e aquela farinha sem sabor de lei", Ingredient.Type.Carne, 79));
-        arrayList.add(new Ingredient("Acelga e nabo com tomate", Ingredient.Type.Carne, 10));
-        arrayList.add(new Ingredient("Molho de salsa", Ingredient.Type.Carne, 30));
-        arrayList.add(new Ingredient("Caçarola marinada (paleta)", Ingredient.Type.Carne, 180));
-        arrayList.add(new Ingredient("Cuscuz vegetariano", Ingredient.Type.Vegano, 120));
-        arrayList.add(new Ingredient("Ratattouile", Ingredient.Type.Sobremesa, 45));
-        arrayList.add(new Ingredient("Gelatina", Ingredient.Type.Sobremesa, 30));
-        return arrayList;
     }
 
     private void updateTextView ()

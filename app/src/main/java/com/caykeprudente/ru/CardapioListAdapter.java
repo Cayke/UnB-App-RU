@@ -43,15 +43,11 @@ public class CardapioListAdapter extends ArrayAdapter<ItemCardapio> {
         textViewName.setText(itemCardapio.getName());
 
         TextView textViewCalories = (TextView) view.findViewById(R.id.tv_row_cardapio_calories);
-<<<<<<< HEAD
-        String calories = String.valueOf(ingredient.getCalories()) + " kcal";
+        String calories = String.valueOf(itemCardapio.getCalories()) + " kcal";
         textViewCalories.setText(calories);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_row_cardapio);
         imageView.setImageResource(R.drawable.icon_carne);
-=======
-        textViewCalories.setText(String.valueOf(itemCardapio.getCalories()));
->>>>>>> 057b632094ff8dc27f2fb5fb1d49d9259e8028d5
 
         return view;
     }
