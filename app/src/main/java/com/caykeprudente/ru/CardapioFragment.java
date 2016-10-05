@@ -39,43 +39,14 @@ public class CardapioFragment extends Fragment {
     int indexDate = 0;
     int indexMeal = 0;
 
-    private Realm myRealm;
-
-    final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-
-    public static final int Salada = 1;
-    public static final int Molho = 2;
-    public static final int Principal = 3;
-    public static final int Guarnicao = 4;
-    public static final int Vegetariano = 5;
-    public static final int Complementos = 6;
-    public static final int Sobremesa = 7;
-    public static final int Suco = 8;
-
-    public static final int Cafe = 1;
-    public static final int Almoco = 2;
-    public static final int Jantar = 3;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.cardapio_layout, container, false);
-        myRealm = Realm.getDefaultInstance();
-
-        criarDbCardapio(myRealm);
-        ArrayList itens = new ArrayList();
-        try {
-            itens = basicQuery(myRealm,new Date(format.parse("03/10/2016").getTime()),Cafe);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         listView = (ListView) view.findViewById(R.id.listViewCardapio);
-
-        // Create ArrayAdapter using the planet list.
-        listAdapter = new CardapioListAdapter(this.getContext(), R.layout.row_cardapio_layout, itens);
-
-        listView.setAdapter(listAdapter);
+        updateCardapioInfo();
 
         tvTitle = (TextView) view.findViewById(R.id.textViewCardapioDate);
 
@@ -86,6 +57,7 @@ public class CardapioFragment extends Fragment {
                 if (indexDate > 0) {
                     indexDate--;
                     updateTextView();
+                    updateCardapioInfo();
                 }
             }
         });
@@ -97,6 +69,7 @@ public class CardapioFragment extends Fragment {
                 if (indexDate < listDates.size() - 1) {
                     indexDate++;
                     updateTextView();
+                    updateCardapioInfo();
                 }
             }
         });
@@ -137,6 +110,7 @@ public class CardapioFragment extends Fragment {
                 {
                     indexMeal = 2;
                 }
+                updateCardapioInfo();
             }
         });
 
@@ -148,11 +122,21 @@ public class CardapioFragment extends Fragment {
     private void populateDateArray ()
     {
         listDates = new ArrayList<>();
-        listDates.add("26/09 Segunda-feira");
-        listDates.add("27/09 Terça-feira");
-        listDates.add("28/09 Quarta-feira");
-        listDates.add("29/09 Quinta-feira");
-        listDates.add("30/09 Sexta-feira");
+        listDates.add("03/10 Segunda-feira");
+        listDates.add("04/10 Terça-feira");
+        listDates.add("05/10 Quarta-feira");
+        listDates.add("06/10 Quinta-feira");
+        listDates.add("07/10 Sexta-feira");
+    }
+
+    private void updateCardapioInfo()
+    {
+        ArrayList<ItemCardapio> itens = Database.basicQuery(Realm.getDefaultInstance(),getSelectedDate(),getSelectedMeal());
+
+        // Create ArrayAdapter using the planet list.
+        listAdapter = new CardapioListAdapter(this.getContext(), R.layout.row_cardapio_layout, itens);
+
+        listView.setAdapter(listAdapter);
     }
 
     private void updateTextView ()
@@ -160,60 +144,36 @@ public class CardapioFragment extends Fragment {
         tvTitle.setText(listDates.get(indexDate));
     }
 
-    private void criarDbCardapio(final Realm myRealm){
-
-        RealmList arrayList = new RealmList();
-        try {
-            Date data = new Date(format.parse("03/10/2016").getTime());
-            //cafe
-            arrayList.add(new ItemCardapio("Alface crespa e pepino", Salada,10,data, Cafe));
-            arrayList.add(new ItemCardapio("Molho vinagrete", Molho,20,data, Cafe));
-            arrayList.add(new ItemCardapio("Carne de sol acebolada", Principal,30,data, Cafe));
-            arrayList.add(new ItemCardapio("Mandioca cozida", Guarnicao,40,data, Cafe));
-            arrayList.add(new ItemCardapio("Lentilha com legumes", Vegetariano,50,data, Cafe));
-            arrayList.add(new ItemCardapio("Arroz branco, arroz integral e Feijão", Complementos,60,data, Cafe));
-            arrayList.add(new ItemCardapio("Mamão", Sobremesa,70,data, Cafe));
-            arrayList.add(new ItemCardapio("Limão", Suco,80,data, Cafe));
-            //almoco
-            arrayList.add(new ItemCardapio("Mix de folhas e rabanete", Salada,10,data, Almoco));
-            arrayList.add(new ItemCardapio("Molho de manjericão", Molho,20,data, Almoco));
-            arrayList.add(new ItemCardapio("Frango à parisiense (peito)", Principal,30,data, Almoco));
-            arrayList.add(new ItemCardapio("Beterraba cozida", Guarnicao,40,data, Almoco));
-            arrayList.add(new ItemCardapio("Picadinho de soja à carioca (ptn de soja grossa escura) ", Vegetariano,50,data, Almoco));
-            arrayList.add(new ItemCardapio("Arroz c/ cenoura, arroz integral e Feijão", Complementos,60,data, Almoco));
-            arrayList.add(new ItemCardapio("Laranja", Sobremesa,70,data, Almoco));
-            arrayList.add(new ItemCardapio("Goiaba", Suco,80,data, Almoco));
-            //janta
-            arrayList.add(new ItemCardapio("Mix de folhas e rabanete", Salada,10,data, Jantar));
-            arrayList.add(new ItemCardapio("Molho de manjericão", Molho,20,data, Jantar));
-            arrayList.add(new ItemCardapio("Frango à parisiense (peito)", Principal,30,data, Jantar));
-            arrayList.add(new ItemCardapio("Beterraba cozida", Guarnicao,40,data, Jantar));
-            arrayList.add(new ItemCardapio("Picadinho de soja à carioca (ptn de soja grossa escura) ", Vegetariano,50,data, Jantar));
-            arrayList.add(new ItemCardapio("Arroz c/ cenoura, arroz integral e Feijão", Complementos,60,data, Jantar));
-            arrayList.add(new ItemCardapio("Laranja", Sobremesa,70,data, Jantar));
-            arrayList.add(new ItemCardapio("Goiaba", Suco,80,data, Jantar));
-        } catch (ParseException e) {
-            e.printStackTrace();
+    private Date getSelectedDate()
+    {
+        final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try{
+            if (indexDate == 0)
+                return new Date(format.parse("03/10/2016").getTime());
+            else if (indexDate == 1)
+                return new Date(format.parse("04/10/2016").getTime());
+            else if (indexDate == 2)
+                return new Date(format.parse("05/10/2016").getTime());
+            else if (indexDate == 3)
+                return new Date(format.parse("06/10/2016").getTime());
+            else if (indexDate == 4)
+                return new Date(format.parse("07/10/2016").getTime());
+            else
+                return null;
         }
-
-        inserirItemCardapio(myRealm,arrayList);
+        catch (ParseException e)
+        {
+            return null;
+        }
     }
 
-    private void inserirItemCardapio(final Realm myRealm, final RealmList<ItemCardapio> itens){
-        myRealm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                realm.copyToRealmOrUpdate(itens);
-            }
-        });
-    }
-
-    private ArrayList basicQuery(Realm realm, Date data, int refeicao) {
-        RealmResults<ItemCardapio> results = realm.where(ItemCardapio.class).equalTo("data",data ).equalTo("refeicao",refeicao).findAll();
-        ArrayList itens = new ArrayList();
-        for(ItemCardapio item : results){
-            itens.add(item);
-        }
-        return itens;
+    private int getSelectedMeal()
+    {
+        if (indexMeal == 0)
+            return Database.Cafe;
+        else if (indexMeal == 1)
+            return Database.Almoco;
+        else
+            return Database.Jantar;
     }
 }

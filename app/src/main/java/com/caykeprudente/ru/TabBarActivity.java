@@ -27,6 +27,7 @@ public class TabBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_bar_layout);
         Realm.init(this);
+        Database.criarDbCardapio();
         initUI();
     }
 

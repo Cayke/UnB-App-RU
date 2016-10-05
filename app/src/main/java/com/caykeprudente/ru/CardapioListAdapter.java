@@ -47,8 +47,26 @@ public class CardapioListAdapter extends ArrayAdapter<ItemCardapio> {
         textViewCalories.setText(calories);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_row_cardapio);
-        imageView.setImageResource(R.drawable.icon_carne);
+        imageView.setImageResource(getDrawableForType(itemCardapio.getType()));
 
         return view;
+    }
+
+    private int getDrawableForType(int type)
+    {
+        if (type == Database.Complementos)
+            return R.drawable.icon_complementos;
+        else if (type == Database.Guarnicao || type == Database.Sobremesa)
+            return R.drawable.icon_guarnicao;
+        else if (type == Database.Molho || type == Database.Suco)
+            return R.drawable.icon_molho;
+        else if (type == Database.Principal)
+            return R.drawable.icon_principal;
+        else if (type == Database.Salada)
+            return R.drawable.icon_salada;
+        else if (type == Database.Vegetariano)
+            return R.drawable.icon_vegano;
+        else
+            return R.drawable.icon_complementos;
     }
 }
