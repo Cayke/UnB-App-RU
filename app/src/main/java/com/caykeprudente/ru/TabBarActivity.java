@@ -28,6 +28,10 @@ public class TabBarActivity extends AppCompatActivity {
         setContentView(R.layout.tab_bar_layout);
 
         Realm.init(this);
+
+        //para quem ta com os dados antigos no banco
+        //Database.cleanDatabase();
+
         Database.criarDbCardapio();
 
         initUI();

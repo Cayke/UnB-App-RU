@@ -206,4 +206,13 @@ public class Database {
         }
         return itens;
     }
+
+    public static void cleanDatabase()
+    {
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        realm.delete(ItemCardapio.class);
+        realm.commitTransaction();
+        realm.close();
+    }
 }
