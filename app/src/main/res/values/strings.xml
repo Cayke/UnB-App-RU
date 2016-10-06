@@ -15,12 +15,26 @@ Etiam commodo dignissim consequat. Nullam sodales eget lorem a blandit. Nullam a
 
 Pellentesque aliquet dictum nulla vel cursus. Nam non urna ac elit molestie feugiat ut eget eros. Sed id ultrices augue. Vestibulum tincidunt, magna et vehicula auctor, odio eros malesuada lorem, vitae consectetur enim mauris at odio. Sed pulvinar libero purus, at feugiat magna viverra eget. Donec ornare, ante quis auctor ullamcorper, orci odio bibendum orci, id imperdiet mi quam et erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum porta odio lacus, a imperdiet velit mattis quis.</string>
 
+    <!-- FORNECEDORES.XML -->
     <string name="fornecedores">A produção e ditribuição de refeições do RU é de competência de empresa terceirizada especializada. Atualmente a empresa prestadora desse serviço é a Sonali. Empresa que atua no mercado há 36 anos. A sonali tem sede em Brasília....</string>
+
+    <!-- O_RU.XML -->
     <string name="o_ru_txt1">Primeiramente, no <font fgcolor="red">Campus Darcy Ribeiro</font>, o RU foi projetado pela FAU/UnB e inaugurado em 1975. Atualmente servimos, em média, 6.000 refeições por dia e contamos com 7 cozinhas, 6 refeitórios, 6 coisa para compra de tíquetes, 1 guarda-volumes e banheiros.</string>
     <string name="o_ru_txt2"><font fgcolor="red">Campus Gama</font> - Inaugurado em 2014, funciona no prédio do MESP, tendo o mesmo cardápio, horário e preços do RU Darcy Ribeiro.</string>
     <string name="o_ru_txt3"><font fgcolor="red">Campus Ceilândia</font> - Inaugurado em 2014, funciona no prédio do MESP, contando com o mesmo cardápio, horários do Darcy Ribeiro.</string>
     <string name="o_ru_txt4"><font fgcolor="red">Fazenda Água Limpa</font> - Inaugurado em 2013, o RU da Fazenda funciona na sede administrativa, tendo também o mesmo cardápio, horários de funcionamento e preços do Darcy Ribeiro.</string>
+
+    <!-- CONTATOS.XML -->
+    <string name="contato_diretora"><b>Diretora:</b> Ygraine Hartmann Leibovich</string>
+    <string name="contato_assis_dir"><b>Assistente de Direção:</b> Danilo dos Santos</string>
+    <string name="contato_tel_1"><b>Telefone:</b> (61) 3107-1073</string>
+    <string name="contato_email_1"><b>E-mail:</b> falary@unb.br</string>
+    <string name="contato_tel_2"><b>Telefone:</b> (61) 3107-1070</string>
+    <string name="contato_email_2"><b>E-mail:</b> falaru@unb.br</string>
+
+    <!-- POLITICA_USO.XML -->
     <string name="regras"><font fgcolor="#e74820">1. </font>Não fure fila;\r\n<font fgcolor="#e74820">2. </font>Não guarde lugar;\r\n<font fgcolor="#e74820">3. </font>Não converse enquanto se serve;\r\n<font fgcolor="#e74820">4. </font>Não é permitido deixar o refeitório portando canecas, talheres, pratos ou alimentos;\r\n</string>
+
     <string name="tab_cafe">Café</string>
     <string name="tab_almoco">Almoço</string>
     <string name="tab_janta">Jantar</string>

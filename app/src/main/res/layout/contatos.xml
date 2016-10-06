@@ -14,22 +14,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:text="Diretora: Ygraine Hartmann Leibovich"/>
+        android:text="@string/contato_diretora"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:text="Assistente de Direção: Danilo dos Santos"/>
+        android:text="@string/contato_assis_dir"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:text="Telefone: (61) 3107-1073"/>
+        android:text="@string/contato_tel_1"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:text="E-mail: falary@unb.br"/>
+        android:text="@string/contato_email_1"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,12 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:textSize="18dp"
-        android:text="Telefone: (61) 3107-1070"/>
+        android:text="@string/contato_tel_2"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:textSize="18dp"
-        android:text="E-mail: falaru@unb.br"/>
+        android:text="@string/contato_email_2"/>
 
 
 </LinearLayout>
