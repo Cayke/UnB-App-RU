@@ -1,6 +1,5 @@
 package com.caykeprudente.ru;
 
-import android.content.ClipData;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,22 +11,13 @@ import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import io.realm.Realm;
-import io.realm.RealmList;
-import io.realm.RealmResults;
-
-import static android.R.attr.data;
-
 /**
- * Created by cayke on 28/09/16.
+ * Created by cayke on 03/10/16.
  */
 
-public class CardapioFragment extends Fragment {
+public class ConsultaFragment extends Fragment{
     ListView listView;
     CardapioListAdapter listAdapter;
 
@@ -39,14 +29,17 @@ public class CardapioFragment extends Fragment {
     int indexDate = 0;
     int indexMeal = 0;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.cardapio_layout, container, false);
 
         listView = (ListView) view.findViewById(R.id.listViewCardapio);
-        updateCardapioInfo();
+
+        // Create ArrayAdapter using the planet list.
+        listAdapter = new CardapioListAdapter(this.getContext(), R.layout.row_cardapio_layout, null);
+
+        listView.setAdapter(listAdapter);
 
         tvTitle = (TextView) view.findViewById(R.id.textViewCardapioDate);
 
@@ -57,7 +50,6 @@ public class CardapioFragment extends Fragment {
                 if (indexDate > 0) {
                     indexDate--;
                     updateTextView();
-                    updateCardapioInfo();
                 }
             }
         });
@@ -69,7 +61,6 @@ public class CardapioFragment extends Fragment {
                 if (indexDate < listDates.size() - 1) {
                     indexDate++;
                     updateTextView();
-                    updateCardapioInfo();
                 }
             }
         });
@@ -110,7 +101,6 @@ public class CardapioFragment extends Fragment {
                 {
                     indexMeal = 2;
                 }
-                updateCardapioInfo();
             }
         });
 
@@ -122,21 +112,11 @@ public class CardapioFragment extends Fragment {
     private void populateDateArray ()
     {
         listDates = new ArrayList<>();
-        listDates.add("03/10 Segunda-feira");
-        listDates.add("04/10 Terça-feira");
-        listDates.add("05/10 Quarta-feira");
-        listDates.add("06/10 Quinta-feira");
-        listDates.add("07/10 Sexta-feira");
-    }
-
-    private void updateCardapioInfo()
-    {
-        ArrayList<ItemCardapio> itens = Database.basicQuery(Realm.getDefaultInstance(),getSelectedDate(),getSelectedMeal());
-
-        // Create ArrayAdapter using the planet list.
-        listAdapter = new CardapioListAdapter(this.getContext(), R.layout.row_cardapio_layout, itens);
-
-        listView.setAdapter(listAdapter);
+        listDates.add("26/09 Segunda-feira");
+        listDates.add("27/09 Terça-feira");
+        listDates.add("28/09 Quarta-feira");
+        listDates.add("29/09 Quinta-feira");
+        listDates.add("30/09 Sexta-feira");
     }
 
     private void updateTextView ()
@@ -144,36 +124,4 @@ public class CardapioFragment extends Fragment {
         tvTitle.setText(listDates.get(indexDate));
     }
 
-    private Date getSelectedDate()
-    {
-        final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        try{
-            if (indexDate == 0)
-                return new Date(format.parse("03/10/2016").getTime());
-            else if (indexDate == 1)
-                return new Date(format.parse("04/10/2016").getTime());
-            else if (indexDate == 2)
-                return new Date(format.parse("05/10/2016").getTime());
-            else if (indexDate == 3)
-                return new Date(format.parse("06/10/2016").getTime());
-            else if (indexDate == 4)
-                return new Date(format.parse("07/10/2016").getTime());
-            else
-                return null;
-        }
-        catch (ParseException e)
-        {
-            return null;
-        }
-    }
-
-    private int getSelectedMeal()
-    {
-        if (indexMeal == 0)
-            return Database.Cafe;
-        else if (indexMeal == 1)
-            return Database.Almoco;
-        else
-            return Database.Jantar;
-    }
 }

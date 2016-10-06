@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">RU</string>
     <string name="tab_1">Cardápio</string>
-    <string name="tab_2">Configurações</string>
+    <string name="tab_2">Consulta</string>
     <string name="tab_3">Info</string>
+    <string name="tab_4">Configurações</string>
+
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis ligula quis elit placerat, vel aliquam nunc vehicula. Nam sit amet felis neque. Nunc dui risus, tempor nec ornare sed, malesuada vitae purus. Suspendisse fringilla sit amet diam nec pretium. Vestibulum lacinia semper quam, ac auctor quam. Quisque aliquet aliquam aliquam. Ut finibus turpis erat, sed ultrices quam faucibus id.
 
 Sed at pretium enim, sed vulputate ante. Cras a malesuada risus, bibendum placerat nunc. Sed ornare tempus justo ut consequat. Donec felis felis, congue eget turpis sed, molestie feugiat lacus. Vivamus a quam nec arcu viverra imperdiet. Nulla condimentum sit amet enim ac vehicula. Donec tincidunt volutpat lacus, at fermentum purus iaculis at. Proin lacinia orci eget semper pretium. Maecenas gravida felis sed vehicula vestibulum. Duis in nunc vehicula, accumsan sem quis, eleifend tellus. Integer vel faucibus turpis. Pellentesque ultrices porta bibendum. Maecenas viverra leo vel neque tincidunt, eu fringilla massa gravida. Donec accumsan ultrices tempor. Mauris id blandit urna. Nullam volutpat varius nunc vitae finibus.
