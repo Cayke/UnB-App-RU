@@ -43,4 +43,7 @@ Pellentesque aliquet dictum nulla vel cursus. Nam non urna ac elit molestie feug
     <string name="cardapio_not">Notificar favoritos:</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancelar</string>
+
+    <string name="reembolso">Para fazer o reembolso de seus créditos é necessário fazer requerimento junto à administração do RU.</string>
+
 </resources>
