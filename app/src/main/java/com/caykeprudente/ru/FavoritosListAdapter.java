@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,11 +23,13 @@ public class FavoritosListAdapter extends BaseExpandableListAdapter {
     private Context _context;
     private List<String> _listDataHeader;
     private HashMap<String, List<String>> _listDataChild;
+    private SharedPreferences sharedPref;
 
-    public FavoritosListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<String>> listChildData) {
+    public FavoritosListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<String>> listChildData, SharedPreferences sharedPref) {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
+        this.sharedPref = sharedPref;
     }
 
     @Override
@@ -42,6 +45,9 @@ public class FavoritosListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
+        final SharedPreferences.Editor editor = sharedPref.edit();
+        boolean defaultValue = false;
+        boolean highScore = sharedPref.getBoolean("butFav"+childPosition, defaultValue);
         final String childText = (String) getChild(groupPosition, childPosition);
 
         if (convertView == null) {
@@ -52,13 +58,18 @@ public class FavoritosListAdapter extends BaseExpandableListAdapter {
         final Switch sButton = (Switch) convertView.findViewById(R.id.lblListIte);
 
         sButton.setText(childText);
+        sButton.setChecked(highScore);
 
         sButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton cb, boolean on) {
-                if (on) {
+                if(on){
+                    editor.putBoolean("butFav"+childPosition,true);
+                    editor.commit();
                     sButton.setTextColor(Color.parseColor("#F4511E"));
-                } else {
+                }else{
+                    editor.putBoolean("butFav"+childPosition,false);
+                    editor.commit();
                     sButton.setTextColor(Color.BLACK);
                 }
             }

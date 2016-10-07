@@ -28,5 +28,5 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layoutDirection="rtl"
-        android:paddingBottom="55dip"/>
+        android:paddingBottom="55dp"/>
 </LinearLayout>

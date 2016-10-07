@@ -1,6 +1,8 @@
 package com.caykeprudente.ru;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -31,23 +33,33 @@ public class ConfigFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.config_layout, container, false);
         super.onCreate(savedInstanceState);
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPref.edit();
+        boolean defaultValue = false;
+        boolean highScore = sharedPref.getBoolean("butNotif", defaultValue);
 
         expListView = (ExpandableListView) view.findViewById(R.id.lvExp);
         prepareListData();
 
         final Switch sButton = (Switch) view.findViewById(R.id.switch_btn);
 
+        sButton.setChecked(highScore);
         sButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
 
             public void onCheckedChanged(CompoundButton cb, boolean on){
-                if(on)
-                {
+                if(on) {
+                    editor.putBoolean("butNotif",true);
+                    editor.commit();
                     openDialog();
+                }else{
+                    editor.putBoolean("butNotif",false);
+                    editor.commit();
+
                 }
             }
         });
 
-        listAdapter = new FavoritosListAdapter(this.getActivity(), listDataHeader, listDataChild);
+        listAdapter = new FavoritosListAdapter(this.getActivity(), listDataHeader, listDataChild, sharedPref);
 
         expListView.setAdapter(listAdapter);
 
