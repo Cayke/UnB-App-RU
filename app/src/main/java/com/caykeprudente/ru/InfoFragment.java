@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.util.Log;
 import android.widget.ViewFlipper;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 public class InfoFragment extends Fragment{
 
@@ -31,6 +33,10 @@ public class InfoFragment extends Fragment{
         text_nav_info = (TextView) view.findViewById(R.id.nav_info);
 
         vf = (ViewFlipper) view.findViewById(R.id.vf);
+        Animation in = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
+        Animation out = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_out_right);
+        vf.setInAnimation(in);
+        vf.setOutAnimation(out);
 
 
         single_click_listener = new View.OnClickListener() {

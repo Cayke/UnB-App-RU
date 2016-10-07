@@ -17,6 +17,6 @@ public class SplashActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, TabBarActivity.class);
         startActivity(intent);
-        //finish();
+        finish();
     }
 }
